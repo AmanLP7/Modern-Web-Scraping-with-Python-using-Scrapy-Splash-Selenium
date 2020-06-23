@@ -15,10 +15,8 @@ class EbooksSpider(scrapy.Spider):
 
     def parse(self, response):
 
-        print(f"This is the response -> {response}")
-
-        # if response["Status Code"] == 500:
-        #     raise CloseSpider("Reached last page.........")
+        if response.status == 500:
+            raise CloseSpider("Reached last page.........")
 
         data = json.loads(response.body)
         ebooks = data.get("works")
