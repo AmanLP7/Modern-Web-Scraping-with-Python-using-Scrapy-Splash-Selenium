@@ -6,9 +6,12 @@
 # https://doc.scrapy.org/en/latest/topics/items.html
 
 import scrapy
+from scrapy.loader.processors import TakeFirst
 
 
-class BookstoscrapeItem(scrapy.Item):
+class BooksToScrapeItem(scrapy.Item):
     image_urls = scrapy.Field()
     images = scrapy.Field()
-    pass
+    book_names = scrapy.Field(
+        output_processor = TakeFirst()
+    )
