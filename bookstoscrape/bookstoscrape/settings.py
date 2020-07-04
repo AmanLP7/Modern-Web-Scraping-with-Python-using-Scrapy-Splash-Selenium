@@ -65,7 +65,7 @@ ROBOTSTXT_OBEY = True
 # Configure item pipelines
 # See https://doc.scrapy.org/en/latest/topics/item-pipeline.html
 ITEM_PIPELINES = {
-   'scrapy.pipelines.images.ImagesPipeline': 1,
+   'bookstoscrape.pipelines.BookstoscrapePipeline': 1,
 }
 
 IMAGES_STORE = 'C:/Users/91870/Downloads/scrapy_images'
