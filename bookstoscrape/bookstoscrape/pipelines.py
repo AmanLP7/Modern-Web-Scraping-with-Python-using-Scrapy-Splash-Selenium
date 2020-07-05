@@ -20,7 +20,6 @@ class BookstoscrapePipeline(ImagesPipeline):
         return [Request(u, meta = {'bookname': item.get('book_names')}) for u in urls]
 
     def file_path(self, request, response=None, info=None):
-        image_guid = hashlib.sha1(to_bytes(request.url)).hexdigest()
-        return 'full/%s.jpg' % (request.meta['bookname'])
+        return 'full/%s.jpg' % (request.meta['bookname'].replace(":",""))
 
     
